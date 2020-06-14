@@ -9,9 +9,20 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Dynasty_name_form import *
 
 class Ui_Form(object):
+
+    def new_game(self):
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_dynasty_name_form()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        Form.hide()
+
+    def closed(self):
+        Form.close()
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(1000, 800)
@@ -69,7 +80,7 @@ class Ui_Form(object):
         font.setWeight(75)
         self.pushButton_2.setFont(font)
         self.pushButton_2.setStyleSheet("background-image: url(:/newPrefix/5196-4V-1_Wood-Texture.jpg);\n"
-"background-color: rgb(115, 210, 22);")
+        "background-color: rgb(115, 210, 22);")
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(Form)
         self.pushButton_3.setGeometry(QtCore.QRect(400, 710, 221, 71))
@@ -81,7 +92,7 @@ class Ui_Form(object):
         font.setWeight(75)
         self.pushButton_3.setFont(font)
         self.pushButton_3.setStyleSheet("background-image: url(:/newPrefix/5196-4V-1_Wood-Texture.jpg);\n"
-"background-color: rgb(204, 0, 0);")
+        "background-color: rgb(204, 0, 0);")
         self.pushButton_3.setObjectName("pushButton_3")
         self.label_3 = QtWidgets.QLabel(Form)
         self.label_3.setGeometry(QtCore.QRect(400, 10, 231, 51))
@@ -126,6 +137,8 @@ class Ui_Form(object):
         self.pushButton_3.raise_()
         self.label_5.raise_()
         self.label_3.raise_()
+        self.pushButton.clicked.connect(self.new_game)
+        self.pushButton_3.clicked.connect(self.closed)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
